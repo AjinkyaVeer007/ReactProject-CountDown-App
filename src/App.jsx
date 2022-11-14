@@ -4,21 +4,21 @@ import { useState } from "react";
 function App() {
   let [count, setCount] = useState(0);
   let [input, setInput] = useState(0);
-  const [disabled, setDisabled] = useState(false);
+  let [disabled, setDisabled] = useState(false);
 
   const submit = () => {
     setCount(input);
     setDisabled(true);
+    input = input - 1;
     setInterval(() => {
       if (input >= 0) {
         setCount(input--);
       } else {
         setDisabled(false);
       }
-    }, 500);
+    }, 1000);
     setInput("");
   };
-
   return (
     <div className="App">
       <h1>Count Down App</h1>
